@@ -18,12 +18,14 @@ class AeroCellEngine:
 
     def update(self):
         # Difusão usando deslocamento de matriz (Vizinhança de Von Neumann)
-        # Calcula a média dos vizinhos
+        # Calcula a média dos vizinhos usando pad para evitar wraparound nas bordas
+        padded_grid = np.pad(self.grid, pad_width=1, mode='constant', constant_values=0)
+        
         neighbor_sum = (
-            np.roll(self.grid,  1, axis=0) +
-            np.roll(self.grid, -1, axis=0) +
-            np.roll(self.grid,  1, axis=1) +
-            np.roll(self.grid, -1, axis=1)
+            padded_grid[1:-1, 2:  ] +  # Vizinho direita
+            padded_grid[1:-1, 0:-2] +  # Vizinho esquerda
+            padded_grid[2:  , 1:-1] +  # Vizinho baixo
+            padded_grid[0:-2, 1:-1]    # Vizinho acima
         )
         
         # Nova grade baseada na difusão e no decaimento (perda de carga viral)
