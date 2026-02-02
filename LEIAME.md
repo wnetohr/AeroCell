@@ -1,5 +1,10 @@
 # Aerocell: Simulador de Propagação de Aerossóis
 
+## Acesse a aplicação
+
+Use o deploy para testar a aplicação diretamente no navegador:
+https://aerocell-wnetohr.streamlit.app/
+
 ## Visão Geral
 
 Aerocell é um simulador desenvolvido para modelar a propagação de aerossóis em ambientes fechados utilizando conceitos de autômatos celulares. Fornece simulações realistas de como doenças respiratórias se propagam em espaços confinados, ajudando pesquisadores e profissionais a compreender a dinâmica de transmissão e avaliar estratégias de mitigação.
